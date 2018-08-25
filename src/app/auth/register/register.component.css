@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+:host ::ng-deep .ant-layout-content {
+    background-color: #722ed1;
+    color: #fff;
+    min-height: 100vh;
+    line-height: 120px;
+}
+
+:host> ::ng-deep .ant-layout {
+    margin-bottom: 48px;
+}
+
+:host ::ng-deep .ant-layout:last-child {
+    margin: 0;
+}
+
+.card {
+    width: 400px;
+    height: auto;
+    border-radius: 10px;
+    margin: auto;
+}
+
+.container {
+    display:flex;
+    align-items: center; /* Vertical center alignment */
+    justify-content: center; /* Horizontal center alignment */
+    min-height: 100vh;
+}
+
+.login-form-forgot {
+    float: right;
+}
+
+.logo img {
+    height: 90px;
+    margin-bottom: 30px;
+}
+
+.logo {
+    text-align: center;
+}
+
+.login-form-button {
+    width: 100%;
+}

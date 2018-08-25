@@ -1,0 +1,69 @@
+<nz-layout>
+  <nz-content>
+    <div class="container">
+      <nz-card class="card" nzTitle="Register">
+        <div class="logo">
+          <img src="assets/logo.png" alt="Logo">
+        </div>
+        <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+
+          <!-- <nz-form-item>
+            <nz-form-control>
+              <nz-input-group [nzAddOnBefore]="addOnBeforeTemplate">
+                <ng-template #addOnBeforeTemplate>
+                  <nz-select formControlName="phoneNumberPrefix" style="width: 70px;">
+                    <nz-option nzLabel="+91" nzValue="+91"></nz-option>
+                    <nz-option nzLabel="+61" nzValue="+61"></nz-option>
+                    <nz-option nzLabel="+1" nzValue="+1"></nz-option>
+                  </nz-select>
+                </ng-template>
+                <input type="number" formControlName="contactNumber" nz-input placeholder="Contact number">
+              </nz-input-group>
+              <nz-form-explain *ngIf="validateForm.get('contactNumber').dirty && validateForm.get('contactNumber').errors">Please
+                input your phone number!</nz-form-explain>
+            </nz-form-control>
+          </nz-form-item> -->
+
+          <nz-form-item>
+            <nz-form-control>
+              <nz-input-group nzPrefixIcon="anticon anticon-user">
+                <input type="text" nz-input formControlName="userName" placeholder="Username">
+              </nz-input-group>
+              <nz-form-explain *ngIf="validateForm.get('userName').dirty && validateForm.get('userName').errors">Please input
+                your username!</nz-form-explain>
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-control>
+              <nz-input-group nzPrefixIcon="anticon anticon-phone">
+                <input type="text" nz-input formControlName="contactNumber" placeholder="Contact Number">
+              </nz-input-group>
+              <nz-form-explain *ngIf="validateForm.get('contactNumber').dirty && validateForm.get('contactNumber').errors">Please
+                input your phone number!</nz-form-explain>
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-control>
+              <nz-input-group nzPrefixIcon="anticon anticon-lock">
+                <input type="password" nz-input formControlName="password" placeholder="Password">
+              </nz-input-group>
+              <nz-form-explain *ngIf="validateForm.get('password').dirty && validateForm.get('password').errors">Please input
+                your Password!</nz-form-explain>
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-control>
+              <button nz-button class="login-form-button" [nzType]="'primary'">Register</button>
+              Or
+              <a routerLink="/login">login now!</a>
+            </nz-form-control>
+          </nz-form-item>
+
+        </form>
+      </nz-card>
+    </div>
+  </nz-content>
+</nz-layout>
