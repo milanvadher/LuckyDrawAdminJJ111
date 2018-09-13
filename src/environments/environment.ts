@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   // origin: 'http://api.excellar.io:3000/'
-  origin: 'http://192.168.43.23:3000/'
+  // origin: 'http://192.168.43.23:3000/'
+  origin: 'http://luckydrawapi.dadabhagwan.org/'
 };
 
 /*
