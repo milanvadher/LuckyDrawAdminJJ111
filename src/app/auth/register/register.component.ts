@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.validateForm = this.fb.group({
-      userName: [null, [Validators.required]],
+      username: [null, [Validators.required]],
       contactNumber: [null, [Validators.required]],
       password: [null, [Validators.required]],
       // phoneNumberPrefix: ['+91', [Validators.required]],
@@ -32,20 +32,20 @@ export class RegisterComponent implements OnInit {
       this.validateForm.controls[i].updateValueAndValidity();
     }
 
-    // if (this.validateForm.valid) {
-    //   this.api.postequest('login', this.validateForm.value).subscribe(res => {
-    //     localStorage.setItem('userData', JSON.stringify(res));
-    //     this.notification.success('Register Successfully');
-    //     this.router.navigateByUrl('/login');
-    //   }, err => {
-    //     this.notification.error(err.error.err);
-    //   });
-    // }
-
     if (this.validateForm.valid) {
-      this.notification.success('Register Successfully');
-      this.router.navigateByUrl('/login');
+      this.api.postequest('register', this.validateForm.value).subscribe(res => {
+        localStorage.setItem('userData', JSON.stringify(res));
+        this.notification.success('Register Successfully');
+        this.router.navigateByUrl('/login');
+      }, err => {
+        this.notification.error(err.error.err);
+      });
     }
+
+    // if (this.validateForm.valid) {
+    //   this.notification.success('Register Successfully');
+    //   this.router.navigateByUrl('/login');
+    // }
 
   }
 

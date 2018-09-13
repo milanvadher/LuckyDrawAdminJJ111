@@ -1,3 +1,44 @@
-<p>
-  home works!
-</p>
+<nz-layout class="layout">
+  <nz-header style="position:fixed; width:100%">
+    <ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="line-height: 64px;">
+      <h2 class="title">Admin Panel Lucky Draw - JJ111</h2>
+      <!-- <li nz-menu-item>Game</li>
+      <li nz-menu-item>Coupon</li> -->
+    </ul>
+  </nz-header>
+  <nz-content style="padding:0 10px;margin-top:64px; background-color: white;">
+    <nz-table #filterTable [nzData]="displayData">
+      <thead (nzSortChange)="sort($event)" nzSingleSort>
+        <tr>
+          <th nzShowSort nzSortKey="username">Name</th>
+          <th nzShowSort nzSortKey="contactNumber">Contact Number</th>
+          <th nzShowSort nzSortKey="questionState">Questions Solved</th>
+          <th nzShowSort nzSortKey="points">Points</th>
+          <th>Unused Coupons</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of filterTable.data">
+          <td>{{data.username}}</td>
+          <td>{{data.contactNumber}}</td>
+          <td>{{data.questionState}}</td>
+          <td>{{data.points}}</td>
+          <td>{{data.earnedTickets.length}}</td>
+          <td>
+            <button nz-button nzType="danger" style="margin-right: 5px" (click)="deleteUser(data.contactNumber)"><i class="anticon anticon-delete"></i></button>
+            <button nz-button nzType="default" (click)="viewUser(data)"><i class="anticon anticon-eye-o"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </nz-content>
+</nz-layout>
+
+<nz-modal nzWrapClassName="vertical-center-modal" [(nzVisible)]="isVisibleMiddle" nzTitle="{{userDetail?.username}}'s Coupons:" (nzOnCancel)="handleOkUser()" (nzOnOk)="handleOkUser()">
+  <h3>Unused Coupons:</h3>
+  <p *ngFor="let coupon of userDetail?.earnedTickets">{{coupon}}</p>
+  <br>
+  <h3>Used Coupons:</h3>
+  <p *ngFor="let coupon of userDetail?.ticketMapping"> <b>{{coupon?.ticketNo}}</b> : {{coupon?.assignDate | date: 'medium'}}</p>
+</nz-modal>

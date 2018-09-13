@@ -3,7 +3,7 @@
     <div class="container">
       <nz-card class="card" nzTitle="Register">
         <div class="logo">
-          <img src="assets/logo.png" alt="Logo">
+          <img src="assets/logo.jpg" alt="Logo">
         </div>
         <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
 
@@ -27,9 +27,9 @@
           <nz-form-item>
             <nz-form-control>
               <nz-input-group nzPrefixIcon="anticon anticon-user">
-                <input type="text" nz-input formControlName="userName" placeholder="Username">
+                <input type="text" nz-input formControlName="username" placeholder="Username">
               </nz-input-group>
-              <nz-form-explain *ngIf="validateForm.get('userName').dirty && validateForm.get('userName').errors">Please input
+              <nz-form-explain *ngIf="validateForm.get('username').dirty && validateForm.get('username').errors">Please input
                 your username!</nz-form-explain>
             </nz-form-control>
           </nz-form-item>

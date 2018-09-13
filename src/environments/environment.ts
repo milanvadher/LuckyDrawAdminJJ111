@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  origin: 'http://192.168.1.104:3000/'
+  // origin: 'http://api.excellar.io:3000/'
+  origin: 'http://192.168.43.23:3000/'
 };
 
 /*

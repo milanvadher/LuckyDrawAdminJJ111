@@ -15,7 +15,7 @@ import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.
 import { HomeComponent } from './home/home.component';
 import zh from '@angular/common/locales/zh';
 
-registerLocaleData(zh);
+registerLocaleData(en);
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -30,7 +30,7 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     ForgotPasswordComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +41,7 @@ const appRoutes: Routes = [
     NgZorroAntdModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [{ provide: NZ_I18N, useValue: zh_CN }],
+  providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

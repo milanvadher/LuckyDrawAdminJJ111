@@ -30,20 +30,20 @@ export class ForgotPasswordComponent implements OnInit {
       this.validateForm.controls[i].updateValueAndValidity();
     }
 
-    // if (this.validateForm.valid) {
-    //   this.api.postequest('forgot-password', this.validateForm.value).subscribe(res => {
-    //     localStorage.setItem('userData', JSON.stringify(res));
-    //     this.notification.success('send OTP to your mobile number ' + this.validateForm.value.contactNumber);
-    //     this.router.navigateByUrl('/login');
-    //   }, err => {
-    //     this.notification.error(err.error.err);
-    //   });
-    // }
-
     if (this.validateForm.valid) {
-      this.notification.success('send OTP to your mobile number ' + this.validateForm.value.contactNumber);
-      this.router.navigateByUrl('/login');
+      this.api.postequest('forgot-password', this.validateForm.value).subscribe(res => {
+        localStorage.setItem('userData', JSON.stringify(res));
+        this.notification.success('send OTP to your mobile number ' + this.validateForm.value.contactNumber);
+        this.router.navigateByUrl('/login');
+      }, err => {
+        this.notification.error(err.error.err);
+      });
     }
+
+    // if (this.validateForm.valid) {
+    //   this.notification.success('send OTP to your mobile number ' + this.validateForm.value.contactNumber);
+    //   this.router.navigateByUrl('/login');
+    // }
   }
 
 }

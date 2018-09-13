@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  origin: 'http://localhost:3001/'
+  // origin: 'http://api.excellar.io:3000/'
+  origin: 'http://localhost:3000/'
 };
