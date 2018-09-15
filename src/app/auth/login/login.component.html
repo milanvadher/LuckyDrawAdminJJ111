@@ -3,7 +3,7 @@
     <div class="container">
       <nz-card class="card" nzTitle="Login">
         <div class="logo">
-          <img src="assets/logo.jpg" alt="Logo">
+          <img src="assets/logo.png" alt="Logo">
         </div>
         <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
 
@@ -26,11 +26,11 @@
 
           <nz-form-item>
             <nz-form-control>
-              <nz-input-group nzPrefixIcon="anticon anticon-phone">
-                <input type="text" nz-input formControlName="contactNumber" placeholder="Contact Number">
+              <nz-input-group nzPrefixIcon="anticon anticon-mail">
+                <input type="email" nz-input formControlName="email" placeholder="Email">
               </nz-input-group>
-              <nz-form-explain *ngIf="validateForm.get('contactNumber').dirty && validateForm.get('contactNumber').errors">Please
-                input your phone number!</nz-form-explain>
+              <nz-form-explain *ngIf="validateForm.get('email').dirty && validateForm.get('email').errors">Please
+                input valid email Id!</nz-form-explain>
             </nz-form-control>
           </nz-form-item>
 
@@ -39,8 +39,8 @@
               <nz-input-group nzPrefixIcon="anticon anticon-lock">
                 <input type="password" nz-input formControlName="password" placeholder="Password">
               </nz-input-group>
-              <nz-form-explain *ngIf="validateForm.get('password').dirty && validateForm.get('password').errors">Please input
-                your Password!</nz-form-explain>
+              <nz-form-explain *ngIf="validateForm.get('password').dirty && validateForm.get('password').errors">Please
+                input valid Password!</nz-form-explain>
             </nz-form-control>
           </nz-form-item>
 
@@ -49,10 +49,10 @@
               <!-- <label nz-checkbox formControlName="remember">
                 <span>Remember me</span>
               </label> -->
-              <a class="login-form-forgot" routerLink="/forgot-password" class="login-form-forgot">Forgot password</a>
+              <!-- <a class="login-form-forgot" routerLink="/forgot-password" class="login-form-forgot">Forgot password</a> -->
               <button nz-button class="login-form-button" [nzType]="'primary'">Log in</button>
-              Or
-              <a routerLink="/register">register now!</a>
+              <!-- Or -->
+              <!-- <a routerLink="/register">register now!</a> -->
             </nz-form-control>
           </nz-form-item>
 

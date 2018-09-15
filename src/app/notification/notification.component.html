@@ -1,0 +1,33 @@
+<div class="container">
+  <nz-card class="card" style="width: 500px;" nzTitle="Send Notification">
+    <!-- <div class="logo">
+      <img src="assets/logo.png" alt="Logo">
+    </div> -->
+    <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="send()">
+
+      <nz-form-item>
+        <nz-form-control>
+          <nz-input-group nzPrefixIcon="anticon anticon-mail">
+            <input type="text" nz-input formControlName="title" placeholder="Title">
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control>
+          <nz-input-group nzPrefixIcon="anticon anticon-message">
+            <textarea type="text" nz-input formControlName="msg" placeholder="Message">
+            </textarea>
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control>
+          <button nz-button class="login-form-button" [nzType]="'primary'">Send</button>
+        </nz-form-control>
+      </nz-form-item>
+
+    </form>
+  </nz-card>
+</div>

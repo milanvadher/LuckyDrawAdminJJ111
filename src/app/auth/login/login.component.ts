@@ -13,37 +13,32 @@ export class LoginComponent implements OnInit {
 
   validateForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private api: RestApiService, private router: Router, private notification: NzMessageService) { }
+  constructor(private fb: FormBuilder, private api: RestApiService, private router: Router, private notification: NzMessageService) {
+  }
 
   ngOnInit() {
+    if (localStorage.getItem('userData')) {
+      this.router.navigateByUrl('home');
+    }
     this.validateForm = this.fb.group({
-      contactNumber: [null, [Validators.required]],
-      password: [null, [Validators.required]],
-      // phoneNumberPrefix: ['+91'],
-      // remember: [ true ]
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, [Validators.required]]
     });
   }
 
   submitForm(): void {
-    // tslint:disable-next-line:forin
     for (const i in this.validateForm.controls) {
       this.validateForm.controls[i].markAsDirty();
       this.validateForm.controls[i].updateValueAndValidity();
     }
 
     if (this.validateForm.valid) {
-      const data = {
-        contactNumber: this.validateForm.value.contactNumber,
-        password: this.validateForm.value.password
-      };
-      this.api.postequest('login', data).subscribe(res => {
+      this.api.postequest('adminLogin', this.validateForm.value).subscribe(res => {
         localStorage.setItem('userData', JSON.stringify(res));
         this.notification.success('Login Successful');
-        this.router.navigateByUrl('/home');
-        return res;
+        this.router.navigateByUrl('home');
       }, err => {
         this.notification.error(err.error.err);
-        return err;
       });
     }
 

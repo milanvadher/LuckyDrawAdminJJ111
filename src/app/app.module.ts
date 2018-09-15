@@ -14,14 +14,20 @@ import { RegisterComponent } from './auth/register/register.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { HomeComponent } from './home/home.component';
 import zh from '@angular/common/locales/zh';
+import { AuthGuard } from './auth.guard';
+import { UsersComponent } from './users/users.component';
+import { DrawsComponent } from './draws/draws.component';
+import { NotificationComponent } from './notification/notification.component';
 
 registerLocaleData(en);
 
 const appRoutes: Routes = [
+  { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'home', component: HomeComponent },
+  // { path: 'register', component: RegisterComponent },
+  // { path: 'forgot-password', component: ForgotPasswordComponent },
+  // { path: '**', redirectTo: '404' },
+  { path: 'home', component: HomeComponent, canActivate:[AuthGuard] },
 ];
 
 @NgModule({
@@ -31,6 +37,9 @@ const appRoutes: Routes = [
     RegisterComponent,
     ForgotPasswordComponent,
     HomeComponent,
+    UsersComponent,
+    DrawsComponent,
+    NotificationComponent,
   ],
   imports: [
     BrowserModule,
