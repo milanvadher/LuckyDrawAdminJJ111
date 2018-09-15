@@ -23,7 +23,7 @@ registerLocaleData(en);
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', redirectTo: '' },
   // { path: 'register', component: RegisterComponent },
   // { path: 'forgot-password', component: ForgotPasswordComponent },
   // { path: '**', redirectTo: '404' },
